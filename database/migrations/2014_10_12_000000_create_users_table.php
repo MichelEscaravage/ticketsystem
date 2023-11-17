@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('IsAdmin')->default(0); 
             $table->rememberToken();
             $table->timestamps();
         });
@@ -27,6 +28,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            // Drop the 'is_admin' column if rolling back the migration
+            $table->dropColumn('is_admin');
+        });
     }
 };
