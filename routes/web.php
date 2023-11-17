@@ -24,6 +24,10 @@ Route::get('/dashboard', function () {
 
 Route::get('/testroute',function(){return view('testroute');});
 
+Route::get('/testroute', [PagesController::class, 'testroute'])->name('testroute');
+
+Route::get('/events', [PagesController::class, 'events'])->name('events');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
