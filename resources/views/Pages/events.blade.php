@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{$event->title}}</h5>
-                    <p class="card-text"><b>Datum:</b>{{$event->start_date}}</p>
+                    <p class="card-text"><b>Datum:</b>{{$event->start_at}}</p>
                     <a href="#" class="btn btn-primary">Bestel Tickets</a>
                 </div>
             </div>

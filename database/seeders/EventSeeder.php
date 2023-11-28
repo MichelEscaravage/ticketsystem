@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Event;
 
 class EventSeeder extends Seeder
 {
@@ -14,24 +15,21 @@ class EventSeeder extends Seeder
     {
         $event = new Event();
         $event->title = 'NK Atletiek';
-        $event->address = 'Dr Schaepmanlaan 4';
-        $event->zip = '4837BW';
-        $event->city = 'Breda';
-        $event->start_date = '2022-06-25';
-        $event->end_date = '2022-06-25';
-        $event->service_costs = '0';
-        $event->ticker_price = '19,99';
+        $event->start_at = '2024-01-02';
+        $event->end_at = '2024-03-02';
+        $event->location = 'Breda';
+        $event->description = 'Nationaal kampioenschap Atletiek';
+        $event->price = '19.99';
         $event->save();
 
+
         $event = new Event();
-        $event->title = 'WK Bodybuilding';
-        $event->address = 'Jaarbeursplein';
-        $event->zip = '3521AL';
-        $event->city = 'Utrecht';
-        $event->start_date = '2022-03-18';
-        $event->end_date = '2022-03-18';
-        $event->service_costs = '25.00';
-        $event->ticker_price = '19,99';
+        $event->title = 'WK bodybuilding';
+        $event->start_at = '2025-01-02';
+        $event->end_at = '2025-03-02';
+        $event->location = 'Utrecht';
+        $event->description = 'Wereld kampioenschap Bodybuilding';
+        $event->price = '25.00';
         $event->save();
     }
 }

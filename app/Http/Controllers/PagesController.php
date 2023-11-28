@@ -8,8 +8,8 @@ class PagesController extends Controller
 {
     public function events()
     {
-        $events = Event::where('start_date', '>', now())->get();
-        return view('pages/events')->with('events', $events );
+        $events = Event::where('start_at', '>=', now() )->get();
+        return view('pages/events')->with('events',$events);
     }
 
     public function testroute()
