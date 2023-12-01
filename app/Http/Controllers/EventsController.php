@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventsController extends Controller
@@ -11,7 +11,8 @@ class EventsController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::all();
+        return view('dashboard/events/index')->with('events',$events);
     }
 
     /**
