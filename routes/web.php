@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function(){
+    Route::resource('events', EventsController::class);
+});
 
 Route::get('/testroute',function(){return view('testroute');});
 
