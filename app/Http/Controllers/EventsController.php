@@ -64,7 +64,7 @@ public function store(Request $request)
      */
     public function edit(string $id)
     {
-        //
+        return view('dashboard/events/edit');
     }
 
     /**
@@ -80,6 +80,8 @@ public function store(Request $request)
      */
     public function destroy(string $id)
     {
+        Event::destroy($id);
+        return redirect()->route('events.index');
         //
     }
 }
