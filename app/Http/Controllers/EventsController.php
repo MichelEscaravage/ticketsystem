@@ -62,7 +62,7 @@ class EventsController extends Controller
     public function destroy(string $id)
     {
         Event::destroy($id);
-        return redirect()->route(route:'events.index');
+        return redirect()->route('events.index');
         //
     }
 }
