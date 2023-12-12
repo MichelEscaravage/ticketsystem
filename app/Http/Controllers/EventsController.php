@@ -20,16 +20,35 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard/events/create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
+public function store(Request $request)
+{
+    $this->validate($request, [
+        'title' => 'required',
+        'start_at'=> 'required',
+        'description' => 'required',
+        'location' => 'required',
+        'price' => 'required',
+        'end_at'=> 'required'
+    ]);
+
+    $event = new Event();
+    $event->title = $request->title;
+    $event->start_at = $request->start_at;
+    $event->description = $request->description; // fix the typo here (descriptions)
+    $event->location = $request->location;
+    $event->price = $request->price;
+    $event->end_at = $request->end_at;
+    $event->save();
+
+    return redirect()->route('events.index');
+}
+
 
     /**
      * Display the specified resource.
