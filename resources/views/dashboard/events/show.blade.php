@@ -8,8 +8,14 @@
         <p><b>Start:</b> {{$event->start_at}}</p>
         <p><b>Location:</b> {{$event->location}}</p>
         <p><b>Price:</b> &euro;{{$event->price}}</p>
-
-        <a href="" class="btn btn-info">Aanpassen</a>
-        <a href="" class="btn btn-danger">Verwijderen</a>
+        <div class="buttons">
+            <a href="" class="btn btn-info">Aanpassen</a>
+            @csrf
+            @method('DELETE')
+            <form action="{{route('events.destroy', $event ->id)}}" method="post">
+                <input type="submit" value="Verwijderen" class="btn btn-danger">
+            </form>
+            
+        </div>
     </div>
 @endsection
